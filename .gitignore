@@ -36,5 +36,10 @@ out/
 ### VS Code ###
 .vscode/
 
-## yml ##
-application.yml
+## 환경 변수 (8주차 배포) ##
+.env
+*.env
+!.env.example
+
+## 작업 문서 ##
+docs/

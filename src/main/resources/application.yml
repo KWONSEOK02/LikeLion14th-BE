@@ -1,0 +1,54 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: LikeLion14th
+  jwt:
+    secret: ${JWT_SECRET:dGhpc2lzYWxvbmdlbm91Z2hzZWNyZXRrZXlmb3JqdzI1NmFsZ29yaXRobTEyMzQ1Njc4OTA=}
+    token:
+      access-expiration-time: ${JWT_ACCESS_EXPIRATION:1800000}
+      refresh-expiration-time: ${JWT_REFRESH_EXPIRATION:1209600000}
+  web:
+    error:
+      include-message: never
+      include-path: never
+      include-stacktrace: never
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DB_URL:jdbc:mysql://localhost:3306/likelion}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:localhost}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+
+springdoc:
+  swagger-ui:
+    try-it-out-enabled: true
+    display-request-duration: true
+    filter: true
+    operations-sorter: method
+    tags-sorter: alpha
+
+kakao:
+  client:
+    id: ${KAKAO_CLIENT_ID:}
+    secret: ${KAKAO_CLIENT_SECRET:}
+  redirect-uri: ${KAKAO_REDIRECT_URI:http://localhost:8081/api/v1/kakao/callback}
+
+naver:
+  client:
+    id: ${NAVER_CLIENT_ID:}
+    secret: ${NAVER_CLIENT_SECRET:}
+  redirect-uri: ${NAVER_REDIRECT_URI:http://127.0.0.1:8081/api/v1/naver/callback}

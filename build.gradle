@@ -69,6 +69,14 @@ dependencies {
 
 	// Spring Security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// Actuator (healthcheck endpoint - 8주차 배포)
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+}
+
+// jar 파일 하나만 생성하게 하는거 (plain jar 비활성, boot jar만 생성)
+jar {
+	enabled = false
 }
 
 tasks.named('test') {
